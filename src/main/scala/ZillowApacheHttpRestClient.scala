@@ -8,7 +8,9 @@ import org.json4s.jackson.JsonMethods._
 object ZillowApacheHttpRestClient {
   def main(args: Array[String]) {
     // get the content from Zillow api url
-    val content = getRestContent("http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f47s45rtvv_1sm5d&zpid=", "48749425")
+    val zipcode = "48749425"
+    val zillowURL = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f47s45rtvv_1sm5d&zpid="
+    val content = getRestContent(zillowURL, zipcode)
 
     // convert it to xml
     val xml = XML.loadString(content)
